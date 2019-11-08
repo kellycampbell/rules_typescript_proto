@@ -4,7 +4,7 @@
   "repository": "https://github.com/Dig-Doug/rules_typescript_proto",
   "license": "Apache-2.0",
   "dependencies": {
-    "google-protobuf": "3.12.2"
+    "google-protobuf": "~3.12.2"
   },
   "devDependencies": {
     "@improbable-eng/grpc-web": "0.13.0",
@@ -13,6 +13,7 @@
     "@types/node": "12.12.50",
     "c8": "^7.3.0",
     "clang-format": "1.4.0",
+    "grpc-tools": "1.9.1",
     "husky": "4.2.5",
     "jasmine": "^3.6.1",
     "jasmine-core": "^3.6.0",
