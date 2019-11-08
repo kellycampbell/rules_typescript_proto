@@ -15,6 +15,7 @@
     "@types/google-protobuf": "3.7.2",
     "@types/jasmine": "3.5.9",
     "clang-format": "1.4.0",
+    "grpc-tools": "^1.8.0",
     "husky": "4.2.3",
     "karma": "4.4.1",
     "karma-chrome-launcher": "3.1.0",
@@ -26,7 +27,7 @@
     "rollup": "2.1.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-node-resolve": "5.2.0",
-    "ts-protoc-gen": "0.12.0",
+    "ts-protoc-gen": "^0.12.0",
     "typescript": "3.8.3"
   },
   "scripts": {
