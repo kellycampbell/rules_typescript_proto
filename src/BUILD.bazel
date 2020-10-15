@@ -1,4 +1,5 @@
-load("@build_bazel_rules_nodejs//packages/typescript:index.bzl", "ts_library")
+load("@npm//@bazel/typescript:index.bzl", "ts_library")
+
 load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 
 nodejs_binary(
