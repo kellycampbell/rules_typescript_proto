@@ -1131,6 +1131,11 @@ grpc-tools@1.9.1:
   dependencies:
     node-pre-gyp "^0.15.0"
 
+grpc-web@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/grpc-web/-/grpc-web-1.2.1.tgz#860051d705bf5baa7b81fcbd14030060bf16b7b9"
+  integrity sha512-ibBaJPzfMVuLPgaST9w0kZl60s+SnkPBQp6QKdpEr85tpc1gXW2QDqSne9xiyiym0logDfdUSm4aX5h9YBA2mw==
+
 has-binary2@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/has-binary2/-/has-binary2-1.0.3.tgz#7776ac627f3ea77250cfc332dab7ddf5e4f5d11d"
