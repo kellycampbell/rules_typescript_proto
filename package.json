@@ -15,7 +15,7 @@
     "c8": "^7.3.0",
     "clang-format": "1.4.0",
     "grpc-tools": "1.9.1",
-    "grpc_tools_node_protoc_ts": "5.0.1",
+    "grpc_tools_node_protoc_ts": "5.0.2-kc.2",
     "husky": "4.2.5",
     "jasmine": "^3.6.1",
     "jasmine-core": "^3.6.0",

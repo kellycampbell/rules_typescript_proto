@@ -1442,10 +1442,10 @@ grpc-web@^1.2.1:
   resolved "https://registry.yarnpkg.com/grpc-web/-/grpc-web-1.2.1.tgz#860051d705bf5baa7b81fcbd14030060bf16b7b9"
   integrity sha512-ibBaJPzfMVuLPgaST9w0kZl60s+SnkPBQp6QKdpEr85tpc1gXW2QDqSne9xiyiym0logDfdUSm4aX5h9YBA2mw==
 
-grpc_tools_node_protoc_ts@5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/grpc_tools_node_protoc_ts/-/grpc_tools_node_protoc_ts-5.0.1.tgz#8ea1989f7b99954db564cd9d6870b81c54549ffa"
-  integrity sha512-lGCWyibXW/enO0+bdysU/lk/n4g6SQgKYjEW52zl9LlL4eTIrZRPAylumD7Js4/ZNjPb33Ad7BKMLSgtiX609g==
+grpc_tools_node_protoc_ts@5.0.2-kc.2:
+  version "5.0.2-kc.2"
+  resolved "https://npmregistry.bulogics.com/grpc_tools_node_protoc_ts/-/grpc_tools_node_protoc_ts-5.0.2-kc.2.tgz#f861ce65800edf8931c6ed826170db7fa347e7ab"
+  integrity sha512-5Tw2IZ/WEQc+UhEqvhJcNOX0pMJRBvgSLR4upDbTYiRldvtvUD5VQHEd8wORQvOWICwKOQ7Fd+uKXDiZi0+IXg==
   dependencies:
     google-protobuf "3.12.4"
     handlebars "4.7.4"
