@@ -63,8 +63,16 @@ def _build_protoc_command(target, ctx):
     # Base produces the .js and .d.ts for the protobuffers (not grpc service interface or client)
     if ctx.attr.generate == "base":
         protoc_outputs += " --js_out=import_style=commonjs,binary:%s" % (protoc_output_dir)
-        protoc_plugins += " --plugin=protoc-gen-ts=%s" % (ctx.executable._grpc_ts_protoc_gen.path)
-        protoc_outputs += " --ts_out=%s" % (protoc_output_dir)
+
+        protoc_plugins += " --plugin=protoc-gen-ts=%s" % (ctx.executable._ts_protoc_gen.path)
+        protoc_command += " --ts_out=%s" % (protoc_output_dir)
+
+        # protoc_plugins += " --plugin=protoc-gen-ts=%s" % (ctx.executable._grpc_ts_protoc_gen.path)
+        # protoc_outputs += " --ts_out=%s" % (protoc_output_dir)
+
+        # protoc_plugins += " --plugin=protoc-gen-grpc-web=%s" % (ctx.executable._protoc_gen_grpc_web.path)
+        # protoc_outputs += " --grpc-web_out=import_style=commonjs+dts,mode=%s:%s" % (ctx.attr.mode, protoc_output_dir)
+
     elif ctx.attr.generate == "grpc-node":
         protoc_plugins += " --plugin=protoc-gen-grpc=%s" % (ctx.executable._grpc_protoc_gen.path)
         protoc_outputs += " --grpc_out=%s" % (protoc_output_dir)
@@ -173,6 +181,7 @@ def typescript_proto_library_aspect_(target, ctx):
 
     tools = []
     tools.extend(ctx.files._protoc)
+    tools.extend(ctx.files._ts_protoc_gen)
     tools.extend(ctx.files._grpc_protoc_gen)
     tools.extend(ctx.files._protoc_gen_grpc_web)
     tools.extend(ctx.files._grpc_ts_protoc_gen)
@@ -229,6 +238,12 @@ typescript_proto_library_aspect = aspect(
                 "grpcweb",
                 "grpcwebtext",
             ],
+        ),
+        "_ts_protoc_gen": attr.label(
+            allow_files = True,
+            executable = True,
+            cfg = "host",
+            default = Label("@rules_typescript_proto_deps//ts-protoc-gen/bin:protoc-gen-ts"),
         ),
         "_grpc_protoc_gen": attr.label(
             allow_files = True,
