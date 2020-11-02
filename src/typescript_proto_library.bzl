@@ -1,4 +1,4 @@
-load("@build_bazel_rules_nodejs//:providers.bzl", "DeclarationInfo", "JSEcmaScriptModuleInfo", "JSNamedModuleInfo")
+load("@build_bazel_rules_nodejs//:providers.bzl", "DeclarationInfo", "JSEcmaScriptModuleInfo", "JSModuleInfo", "JSNamedModuleInfo")
 load("@rules_proto//proto:defs.bzl", "ProtoInfo")
 
 TypescriptProtoLibraryAspect = provider(
@@ -282,12 +282,17 @@ def _typescript_proto_library_impl(ctx):
     """
     Handles converting the aspect output into a provider compatible with the rules_typescript rules.
     """
+    # print("LIBRARY generate = %s ctx = %s" % (ctx.attr.generate, ctx))
+
+
     aspect_data = ctx.attr.proto[TypescriptProtoLibraryAspect]
     dts_outputs = aspect_data.dts_outputs
     transitive_declarations = depset(transitive = [dts_outputs, aspect_data.deps_dts])
     es5_outputs = aspect_data.es5_outputs
     es6_outputs = aspect_data.es6_outputs
     outputs = depset(transitive = [es5_outputs, es6_outputs, dts_outputs])
+
+    # print("OUTPUTS of %s = %r" % (ctx, outputs))
 
     es5_srcs = depset(transitive = [es5_outputs, aspect_data.deps_es5])
     es6_srcs = depset(transitive = [es6_outputs, aspect_data.deps_es6])
@@ -306,6 +311,10 @@ def _typescript_proto_library_impl(ctx):
                 declarations = dts_outputs,
                 transitive_declarations = transitive_declarations,
                 type_blacklisted_declarations = depset([]),
+            ),
+            JSModuleInfo(
+                direct_sources = es5_srcs,
+                sources = es5_srcs,
             ),
             JSNamedModuleInfo(
                 direct_sources = es5_srcs,
