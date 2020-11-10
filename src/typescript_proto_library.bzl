@@ -154,8 +154,8 @@ def _get_outputs(target, ctx):
             full_name = file_name + f
             output = ctx.actions.declare_file(full_name + ".js")
             js_outputs.append(output)
-            output_es6 = ctx.actions.declare_file(full_name + ".mjs")
-            js_outputs_es6.append(output_es6)
+            # output_es6 = ctx.actions.declare_file(full_name + ".mjs")
+            # js_outputs_es6.append(output_es6)
 
         for f in typescriptFiles:
             output = ctx.actions.declare_file(file_name + f)
@@ -176,7 +176,7 @@ def typescript_proto_library_aspect_(target, ctx):
 
     all_commands = [
         _build_protoc_command(target, ctx),
-        _create_post_process_command(target, ctx, js_outputs, js_outputs_es6),
+        # _create_post_process_command(target, ctx, js_outputs, js_outputs_es6),
     ]
 
     tools = []
